@@ -230,4 +230,8 @@ document.write(navigator.userAgent);
 <label for="" id="firstname">kejiieo</label>
   var firstname = prompt("Enter your firstname :");
   document.getElementById("firstname").innerText = firstname;
-  */
+  
+// Problem 2
+ var pTag = document.getElementsByTagName("p");
+     document.write("There are  " + pTag.length +" P TAgs in  this html form ");  
+*/

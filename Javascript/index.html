@@ -5,15 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js" defer></script>
+    <scrip src="script.js" defer></script>
     <scrip src="Assignment.js"></script>
+      
   </head>
-  <body class="body">
-     <p class="age">3</p>
-     <p class="age">3</p>
-     <p class="age">3</p>
-     <p class="age">3</p>
-     <p class="age">3</p>
+  <body  >
+    
+    <input type="button" value="Set cookie" onclick="setcookie()">
+    <input type="button" value="get cookie" onclick="getcookie()">
+   <script>
+     function setcookie(){
      
+       document.cookie= "companyname = Learnvern;max-age"+ (30) + ";";
+     }
+     function getcookie(){
+       if(document.cookie.length != 0){
+        var array = document.cookie.split("=");    // We use .split(" ") to separate the array
+         alert("company name: " + array[0] + "\nValue :" + array[1]);
+       }
+       else{
+         alert("Cookie is not set");
+       }
+     }
+   </script>
   </body>
 </html>
+
+
+ 

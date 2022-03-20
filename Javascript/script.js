@@ -92,7 +92,7 @@ while (int <= 5) {
   console.log(int);
   int++;
 }
-/*
+
 //Example of do while loop
 var int = 1;
 do {
@@ -119,7 +119,6 @@ var target = "A";
 var count = 0;
 for (value of alphabets) {
   if ((value = target)) {
-    count += 1;
     count++;
   }
 }
@@ -323,7 +322,7 @@ console.log(" " + navigator.onLine);
 // Screen object
 // we can see all screen related information by using screen object.
 console.log(window.screen);
-*/
+
 
 // Document object Model (DOM)
 function Yourname() {
@@ -333,3 +332,124 @@ function Yourname() {
 
 var getAge = prompt("Enter your Age :");
 document.getElementsByClassName("age").innerText = age;
+
+var getbox = document.getElementsByClassName("box");
+var btn = document.querySelector(".btn");
+
+btn.addEventListener("onclick", function () {
+  console.log("hello");
+  var flag = true;
+  var textArea = "<textarea rows='5' cols='70'></textarea>";
+  if (flag) {
+    document.getElementsByClassName("body").innerHTML = textArea;
+    flag = false;
+  } else {
+    document.getElementsByClassName("body").innerHTML = " ";
+    flag = true;
+  }
+});
+
+
+// Form validation using Javascript
+// checking input name should not be empty and password must be more than 6 charaters;
+
+function  validationForm(){
+  var name = document.myform.name.value;
+  var password = document.myform.password.value;
+
+  if (name == null || name == " "){
+    alert("name cannot be blank");
+    return false;
+  }
+  else if (password.length < 6 ){
+    alert("Password must be more than 6 charachters");
+    return false;
+  }
+}
+// checking telephone no is number only not charcter
+function validationForm(){
+         var telephone = document.myform.Telephone.value;
+
+         if (isNaN(telephone)){
+           document.getElementById("erortelephone").innerHTML = "Entered Telephone Number is not correct" ;
+         }
+         else{
+           return true;
+         }
+       }
+
+ // Email valadition checking enter email is correct or not .
+  function validationform(){
+         var email = document.myform.email.value;
+         var atposition = email.indexOf('@');
+         var dotpositon = email.indexOf('.');
+         
+        if (atposition<1 || dotpositon<atposition+2 || dotpositon+2 >= email.length){
+          alert("enter correct email id ");
+          return false;
+        }
+       }
+
+// Cookies in Javascript
+1) when a user sends a request ot the Sever, then each of that request is treated as a new request sent by the different user.
+2) so to recognize the old user, we need ot add the cookie with the response from the sever. 
+3) browser at the client - side. 
+4 )Now, whenever a user sends request to the sever, the cookie is added with that requwst automatically. Due to eh cookie, the Server recognizes the users.
+
+
+Synatax
+document.cookie = "name=value";
+
+  <input type="button" value="Set cookie" onclick="setcookie()">
+      <input type="button" value="get cookie" onclick="getcookie()">
+     <script>
+       function setcookie(){
+       
+         document.cookie= "companyname = Learnvern";
+       }
+       function getcookie(){
+         if(document.cookie.length != 0){
+          var array = document.cookie.split("=");    // We use .split(" ") to separate the array
+           alert("company name: " + array[0] + "\nValue :" + array[1]);
+         }
+         else{
+           alert("Cookie is not set");
+         }
+       }
+     </script>
+     <select id="color" onchange="getcolor()">
+      <option value="selectvalue">--select value--</option>
+      <option value="cyan">cyan</option>
+      <option value="lightgreen">lightgreen</option>
+      <option value="red">red</option>
+    </select>
+
+    <script>
+      function getcolor(){
+        var value = document.getElementById("color").value;
+
+        if (value != "selectvalue"){
+          document.bgColor = value;
+          document.cookie = "color=" + value; 
+        }
+        window.onload = function(){        // we use window.onload for not refeshing the page while we come back to that page
+          if (document.cookie.length != 0){
+            var array = document.cookie.split("=");
+            document.getElementById("color").value = array[1];
+            document.bgColor = array[1];
+          }
+        }
+      }
+    </script>
+
+    // Javascript provides some optional  attributes that enhance the functionality of cookies. Here, is the list of some attributes with their description.
+
+    expires  = It maintains the state of a cookie up to the specified date and time. 
+    max-age =  It maintains the state of a cookie up to the specified time. Here, time is given in seconds.
+    path    = It expands the scopte of the cookie to all the pages of a wevsite.
+    domain = It is used to specify the domain for which the cookie is valid.
+   
+   The cookie expires atttribute  provides one of the ways to create a persistent cookie. Here, a date and tiem are declared that represents the active period of a cookie. once the declared time is passsed, a cookie is deleted automatically.
+   
+   expires = document.cookie= "companyname = Learnvern; expires=Mon, 21 mar 2002 19:06:00 IST";
+*/
